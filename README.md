@@ -1,3 +1,2 @@
 +#_Javascript projects 
-+ Paint splatter <http://github.com/dambadipudi/Javascript-Projects/paint_splatter/>
-
++ _`Paint splatter <https://github.com/dambadipudi/javascript_projects/>`_
