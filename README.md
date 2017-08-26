@@ -1,2 +1,3 @@
-+# Javascript projects 
-+ Paint_splatter
++#_Javascript projects 
++ Paint splatter <http://github.com/dambadipudi/Javascript-Projects/paint_splatter/>
+
