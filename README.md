@@ -1,2 +1,2 @@
-# paintSplatter_JS
-Javascript code to draw paint splatters
+#Javascript projects 
+ ##Paint_splatter
