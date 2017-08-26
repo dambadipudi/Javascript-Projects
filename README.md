@@ -1,2 +1,2 @@
-#Javascript projects 
- ##Paint_splatter
++# Javascript projects 
++ Paint_splatter
