@@ -1,5 +1,5 @@
-div { align: center;
-      width: 400px;
+div { margin: auto;
+      width: 100vh;
       padding: 20px;
 }
 
