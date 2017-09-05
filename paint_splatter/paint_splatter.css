@@ -6,7 +6,5 @@ div { align: center;
 canvas {
       height: 400px;
       width: 400px;
-      border: 1px;
-      border-style: solid;
-      border-color: "#FF0000";
+      border: 1px solid lightgrey;
 }
