@@ -24,7 +24,7 @@ function drawOnCanvas() {
     var paintSplatterCount = 0;
     context = document.getElementById('paint_splatter_canvas').getContext("2d");
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-    
+    alert("Splatter count is " + paintSplatterCount);
     while(paintSplatterCount < 10) {
         paintSplatterCount ++;
         context.beginPath();
