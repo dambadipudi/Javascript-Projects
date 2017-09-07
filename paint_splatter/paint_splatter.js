@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 var context;
 
-document.getElementById("start_button").onclick = function() {drawOnCanvas()};
+document.getElementById("start_button").addEventListener("click", drawOnCanvas);
 
 function getRandomLocation() {
     return { x_pos: Math.floor(Math.random()*context.canvas.width),
