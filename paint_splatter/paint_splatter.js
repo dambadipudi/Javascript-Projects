@@ -56,7 +56,7 @@ function drawOnCanvas() {
         context.beginPath();
         context.fillStyle = getRandomColor();
         var randomPosition = getRandomLocation();
-        drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos);
+        setTimeout(drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos), 1000);
         
     }
 }
