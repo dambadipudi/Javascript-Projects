@@ -6,7 +6,6 @@ $(document).ready(function(){
 });
 
 var context;
-var paintSplatterCount = 0;
 
 function getRandomLocation() {
     return { x_pos: Math.floor(Math.random()*context.canvas.width),
@@ -21,6 +20,7 @@ function getRandomColor() {
 }
 
 function drawOnCanvas() {
+    var paintSplatterCount = 0;
     context = document.getElementById('paint_splatter_canvas').getContext("2d");
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     
