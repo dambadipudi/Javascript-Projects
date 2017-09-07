@@ -2,7 +2,7 @@
  * After the page loads, prepare the Canvas
  */
 $(document).ready(function(){
-    drawOnCanvas();
+    document.getElementById("start_button").onclick = function() {drawOnCanvas()};
 });
 
 var context;
