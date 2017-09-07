@@ -2,7 +2,7 @@
  * After the page loads, prepare the Canvas
  */
 $(document).ready(function(){
-    document.getElementById("start_button").addEventListener("click", drawOnCanvas);
+    document.getElementById("splatter_button").addEventListener("click", drawOnCanvas);
 });
 
 var context;
