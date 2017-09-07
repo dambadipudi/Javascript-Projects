@@ -58,6 +58,6 @@ function drawOnCanvas() {
         context.fillStyle = getRandomColor();
         var randomPosition = getRandomLocation();
         setTimeout(drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos), 1000);
-        console.log(paintSplatterCount + " splatter done! " 
+        console.log(paintSplatterCount + " splatter done! ");
     }
 }
