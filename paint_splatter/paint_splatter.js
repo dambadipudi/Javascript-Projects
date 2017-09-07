@@ -19,6 +19,33 @@ function getRandomColor() {
     return '#000000'.slice(0, -color.length) + color;
 }
 
+function gaussianRand() {
+  var rand = 0;
+
+  for (var i = 0; i < 6; i += 1) {
+    rand += Math.random();
+  }
+
+  return rand / 6;
+}
+
+function drawPaintSplatter(x_pos, y_pos) {
+    
+    //Select a random number each time for width of the splatter
+    var standard_deviation = random()*10;
+    
+    var splatterCount = 0;
+    while(splatterCount < 10000) {
+        splatterCount++;
+        context.arc(Math.round(x_pos + standard_deviation * gaussianRand()),
+                    Math.round(y_pos + standard_deviation * gaussianRand()),
+                    Math.round(random()*5),
+                    0,
+                    2*Math.PI);
+        context.fill();
+    }
+}
+
 function drawOnCanvas() {
     var paintSplatterCount = 0;
     context = document.getElementById('paint_splatter_canvas').getContext("2d");
@@ -27,11 +54,9 @@ function drawOnCanvas() {
     while(paintSplatterCount < 10) {
         paintSplatterCount ++;
         context.beginPath();
-        context.strokeStyle = getRandomColor();
+        context.fillStyle = getRandomColor();
         var randomPosition = getRandomLocation();
-         //Get a normal distribution for maximum paint near the point and a few paint drop outliers as splatter
+        drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos);
         
-        context.arc(randomPosition.x_pos,randomPosition.y_pos,50,0,2*Math.PI); // For now just draw a circle
-        context.stroke();
     }
 }
