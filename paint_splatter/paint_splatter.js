@@ -33,7 +33,7 @@ function drawPaintSplatter(x_pos, y_pos) {
     
     //Select a random number each time for width of the splatter
     var standard_deviation = random()*10;
-    
+    console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
     while(splatterCount < 10000) {
         splatterCount++;
@@ -43,6 +43,7 @@ function drawPaintSplatter(x_pos, y_pos) {
                     0,
                     2*Math.PI);
         context.fill();
+        console.log("Filled circle number "+splatterCount + "\n");
     }
 }
 
@@ -57,6 +58,6 @@ function drawOnCanvas() {
         context.fillStyle = getRandomColor();
         var randomPosition = getRandomLocation();
         setTimeout(drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos), 1000);
-        
+        console.log(paintSplatterCount + " splatter done! " 
     }
 }
