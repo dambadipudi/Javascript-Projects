@@ -52,14 +52,14 @@ function drawPaintSplatter() {
     var randomPosition = getRandomLocation();
    
     //Select a random number each time for width of the splatter
-    var standard_deviation = Math.random()*10;
+    var standard_deviation = Math.random()*7;
     console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
     while(splatterCount < 200) {
         splatterCount++;
         context.arc(randomPosition.x_pos + standard_deviation * gaussianRand(),
                     randomPosition.y_pos + standard_deviation * gaussianRand(),
-                    Math.round(Math.random()*5),
+                    Math.round(Math.random()*3),
                     0,
                     2*Math.PI);
         context.fill();
