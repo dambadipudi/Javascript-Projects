@@ -62,7 +62,7 @@ function drawPaintSplatter() {
         var dot_y = gaussianRand(randomPosition.y_pos, standard_deviation);
         context.arc(dot_x,
                     dot_y,
-                    Math.random()*2),
+                    Math.random()*2,
                     0,
                     2*Math.PI);
         context.fill();
@@ -72,7 +72,8 @@ function drawPaintSplatter() {
 
     while(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
-        setTimeout(drawPaintSplatter(), 1000);
+        delay(500);
+        window.requestAnimationFrame(drawPaintSplatter);
     }
 }
 
@@ -80,5 +81,5 @@ function drawOnCanvas() {
     paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     console.log("Clearing canvas and painting again,splatter count -" + paintSplatterCount + "\n");
-    drawPaintSplatter();         
+    window.requestAnimationFrame(drawPaintSplatter);        
 }
