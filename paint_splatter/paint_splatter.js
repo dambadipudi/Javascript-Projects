@@ -1,5 +1,6 @@
 var context;
 var paintSplatterCount = 0;
+var intervalVar = null;
 
 /**
  * After the page loads, prepare the Canvas
@@ -49,7 +50,11 @@ function drawPaintSplatter() {
     paintSplatterCount ++;
     
     if(paintSplatterCount > 5) {
-    return;
+        if(!intervalVal) {
+            clearInterval(intervalVar);
+        }
+        
+        return;
     }
     
     //context.restore();
@@ -80,5 +85,5 @@ function drawOnCanvas() {
     paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     console.log("Clearing canvas and painting again,splatter count -" + paintSplatterCount + "\n");    
-    setInterval(drawPaintSplatter(), 500);
+    intervalVar = setInterval(drawPaintSplatter(), 500);
 }
