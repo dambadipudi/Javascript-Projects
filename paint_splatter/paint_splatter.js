@@ -47,6 +47,7 @@ function gaussianRand(mean, std) {
 
 function drawPaintSplatter() {
     paintSplatterCount ++;
+    context.restore();
     context.beginPath();
     context.fillStyle = getRandomColor();
     var randomPosition = getRandomLocation();
@@ -57,7 +58,6 @@ function drawPaintSplatter() {
     var splatterCount = 0;
     while(splatterCount < 200) {
         splatterCount++;
-        context.save();
         context.arc(gaussianRand(randomPosition.x_pos, standard_deviation),
                     gaussianRand(randomPosition.y_pos, standard_deviation),
                     Math.round(Math.random()*3),
@@ -65,10 +65,10 @@ function drawPaintSplatter() {
                     2*Math.PI);
         context.fill();
         context.closePath();
-        context.restore();
         console.log("Filled circle number "+splatterCount + "\n");
     }
-    
+    context.save();
+
     while(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
         setTimeout(drawPaintSplatter(), 1000);
