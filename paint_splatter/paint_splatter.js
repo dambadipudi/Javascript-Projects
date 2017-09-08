@@ -47,7 +47,7 @@ function gaussianRand(mean, std) {
 
 function drawPaintSplatter() {
     paintSplatterCount ++;
-    context.restore();
+    //context.restore();
     context.beginPath();
     context.fillStyle = getRandomColor();
     var randomPosition = getRandomLocation();
@@ -66,14 +66,12 @@ function drawPaintSplatter() {
                     0,
                     2*Math.PI);
         context.fill();
-        context.closePath();
-        context.save();
-        console.log("Dot location "+dot_x + ", " + dot_y + "\n");
+        //console.log("Dot location "+dot_x + ", " + dot_y + "\n");
     }
 
     if(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
-        setTimeout(drawPaintSplatter(), 500);
+        drawPaintSplatter();
     }
 }
 
