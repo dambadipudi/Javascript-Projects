@@ -54,18 +54,20 @@ function drawPaintSplatter() {
    
     //Select a random number each time for width of the splatter
     var standard_deviation = Math.random()*7;
-    console.log("Inside drawPaintSplatter function \n");
+    var dot_x = gaussianRand(randomPosition.x_pos, standard_deviation);
+    var dot_y = gaussianRand(randomPosition.y_pos, standard_deviation)
+    //console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
     while(splatterCount < 200) {
         splatterCount++;
-        context.arc(gaussianRand(randomPosition.x_pos, standard_deviation),
-                    gaussianRand(randomPosition.y_pos, standard_deviation),
+        context.arc(dot_x,
+                    dot_y,
                     Math.round(Math.random()*3),
                     0,
                     2*Math.PI);
         context.fill();
         context.closePath();
-        console.log("Filled circle number "+splatterCount + "\n");
+        console.log("Dot location "+dot_x + ", " + dot_y + "\n");
     }
     context.save();
 
