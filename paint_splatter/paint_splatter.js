@@ -72,8 +72,7 @@ function drawPaintSplatter() {
 
     while(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
-        //delay(500);
-        window.requestAnimationFrame(drawPaintSplatter);
+        setTimeout(drawPaintSplatter, 500);
     }
 }
 
