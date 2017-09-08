@@ -32,14 +32,14 @@ function gaussianRand() {
 function drawPaintSplatter(x_pos, y_pos) {
     
     //Select a random number each time for width of the splatter
-    var standard_deviation = Math.random()*10;
+    var standard_deviation = Math.random()*20;
     console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
-    while(splatterCount < 500) {
+    while(splatterCount < 100) {
         splatterCount++;
         context.arc(Math.round(x_pos + standard_deviation * gaussianRand()),
                     Math.round(y_pos + standard_deviation * gaussianRand()),
-                    Math.round(Math.random()*5),
+                    Math.round(Math.random()*15),
                     0,
                     2*Math.PI);
         context.fill();
