@@ -57,6 +57,7 @@ function drawPaintSplatter() {
     var splatterCount = 0;
     while(splatterCount < 200) {
         splatterCount++;
+        context.save();
         context.arc(randomPosition.x_pos + standard_deviation * gaussianRand(),
                     randomPosition.y_pos + standard_deviation * gaussianRand(),
                     Math.round(Math.random()*3),
@@ -64,6 +65,7 @@ function drawPaintSplatter() {
                     2*Math.PI);
         context.fill();
         context.closePath();
+        context.restore();
         console.log("Filled circle number "+splatterCount + "\n");
     }
     
