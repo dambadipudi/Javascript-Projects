@@ -65,7 +65,7 @@ function drawPaintSplatter() {
     //Select a random number each time for width of the splatter
     var standard_deviation = Math.random()*5;
     
-    console.log("Inside drawPaintSplatter function " + paintSplatterCount +\n");
+    console.log("Inside drawPaintSplatter function " + paintSplatterCount + "\n");
     
     for(var splatterCount = 0; splatterCount < 600; splatterCount++) {
         var dot_x = gaussianRand(randomPosition.x_pos, standard_deviation);
