@@ -6,6 +6,7 @@ $(document).ready(function(){
 });
 
 var context;
+var paintSplatterCount = 0;
 
 function getRandomLocation() {
     return { x_pos: Math.floor(Math.random()*context.canvas.width),
@@ -29,35 +30,35 @@ function gaussianRand() {
   return rand / 6;
 }
 
-function drawPaintSplatter(x_pos, y_pos) {
-    
+function drawPaintSplatter() {
+    paintSplatterCount ++;
+    context.beginPath();
+    context.fillStyle = getRandomColor();
+    var randomPosition = getRandomLocation();
+   
     //Select a random number each time for width of the splatter
     var standard_deviation = Math.random()*20;
     console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
-    while(splatterCount < 100) {
+    while(splatterCount < 20) {
         splatterCount++;
-        context.arc(x_pos + standard_deviation * gaussianRand(),
-                    y_pos + standard_deviation * gaussianRand(),
+        context.arc(randomPosition.x_pos + standard_deviation * gaussianRand(),
+                    randomPosition.y_pos + standard_deviation * gaussianRand(),
                     Math.round(Math.random()*15),
                     0,
                     2*Math.PI);
         context.fill();
         console.log("Filled circle number "+splatterCount + "\n");
     }
+    
+    while(paintSplatterCount < 5) {
+        console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
+        setTimeout(drawPaintSplatter(), 1000);
+    }
 }
 
 function drawOnCanvas() {
-    var paintSplatterCount = 0;
     context = document.getElementById('paint_splatter_canvas').getContext("2d");
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
-    
-    while(paintSplatterCount < 10) {
-        paintSplatterCount ++;
-        context.beginPath();
-        context.fillStyle = getRandomColor();
-        var randomPosition = getRandomLocation();
-        setTimeout(drawPaintSplatter(randomPosition.x_pos, randomPosition.y_pos), 1000);
-        console.log(paintSplatterCount + " splatter done! ");
-    }
+    paintSplatterCount();         
 }
