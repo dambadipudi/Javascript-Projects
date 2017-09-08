@@ -41,7 +41,7 @@ function drawPaintSplatter() {
     var standard_deviation = Math.random()*10;
     console.log("Inside drawPaintSplatter function \n");
     var splatterCount = 0;
-    while(splatterCount < 20) {
+    while(splatterCount < 200) {
         splatterCount++;
         context.arc(randomPosition.x_pos + standard_deviation * gaussianRand(),
                     randomPosition.y_pos + standard_deviation * gaussianRand(),
