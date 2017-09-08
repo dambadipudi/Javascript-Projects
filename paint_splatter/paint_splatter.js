@@ -1,12 +1,13 @@
+var context;
+var paintSplatterCount = 0;
+
 /**
  * After the page loads, prepare the Canvas
  */
 $(document).ready(function(){
+    context = document.getElementById('paint_splatter_canvas').getContext("2d");
     document.getElementById("splatter_button").addEventListener("click", drawOnCanvas);
 });
-
-var context;
-var paintSplatterCount = 0;
 
 function getRandomLocation() {
     return { x_pos: Math.floor(Math.random()*context.canvas.width),
@@ -48,6 +49,7 @@ function drawPaintSplatter() {
                     0,
                     2*Math.PI);
         context.fill();
+        context.closePath();
         console.log("Filled circle number "+splatterCount + "\n");
     }
     
@@ -58,7 +60,6 @@ function drawPaintSplatter() {
 }
 
 function drawOnCanvas() {
-    context = document.getElementById('paint_splatter_canvas').getContext("2d");
     paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     drawPaintSplatter();         
