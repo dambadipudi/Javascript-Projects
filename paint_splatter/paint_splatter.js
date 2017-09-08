@@ -58,8 +58,8 @@ function drawPaintSplatter() {
     while(splatterCount < 200) {
         splatterCount++;
         context.save();
-        context.arc(randomPosition.x_pos + standard_deviation * gaussianRand(),
-                    randomPosition.y_pos + standard_deviation * gaussianRand(),
+        context.arc(gaussianRand(randomPosition.x_pos, standard_deviation),
+                    gaussianRand(randomPosition.x_pos, standard_deviation),
                     Math.round(Math.random()*3),
                     0,
                     2*Math.PI);
