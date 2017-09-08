@@ -73,7 +73,7 @@ function drawPaintSplatter() {
 
     while(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
-        window.requestAnimationFrame(drawPaintSplatter);
+        drawPaintSplatter();
     }
 }
 
@@ -81,5 +81,5 @@ function drawOnCanvas() {
     paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     console.log("Clearing canvas and painting again,splatter count -" + paintSplatterCount + "\n");
-    window.requestAnimationFrame(drawPaintSplatter);        
+    drawPaintSplatter();        
 }
