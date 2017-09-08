@@ -59,6 +59,7 @@ function drawPaintSplatter() {
 
 function drawOnCanvas() {
     context = document.getElementById('paint_splatter_canvas').getContext("2d");
+    paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     drawPaintSplatter();         
 }
