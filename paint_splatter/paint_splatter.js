@@ -71,9 +71,9 @@ function drawPaintSplatter() {
         console.log("Dot location "+dot_x + ", " + dot_y + "\n");
     }
 
-    while(paintSplatterCount < 5) {
+    if(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
-        drawPaintSplatter();
+        setTimeout(drawPaintSplatter(), 500);
     }
 }
 
