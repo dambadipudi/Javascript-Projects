@@ -47,29 +47,28 @@ function gaussianRand(mean, std) {
 
 function drawPaintSplatter() {
     paintSplatterCount ++;
-    context.restore();
+    
     context.beginPath();
     context.fillStyle = getRandomColor();
     var randomPosition = getRandomLocation();
    
     //Select a random number each time for width of the splatter
-    var standard_deviation = Math.random()*7;
+    var standard_deviation = Math.random()*5;
     
     console.log("Inside drawPaintSplatter function \n");
     
-    for(var splatterCount = ; splatterCount < 200; splatterCount++) {
+    for(var splatterCount = 0; splatterCount < 600; splatterCount++) {
         var dot_x = gaussianRand(randomPosition.x_pos, standard_deviation);
         var dot_y = gaussianRand(randomPosition.y_pos, standard_deviation);
         context.arc(dot_x,
                     dot_y,
-                    Math.round(Math.random()*3),
+                    Math.random()*2),
                     0,
                     2*Math.PI);
         context.fill();
         context.closePath();
         console.log("Dot location "+dot_x + ", " + dot_y + "\n");
     }
-    context.save();
 
     while(paintSplatterCount < 5) {
         console.log("Calling paintSplatterCount no " + paintSplatterCount + "\n");
