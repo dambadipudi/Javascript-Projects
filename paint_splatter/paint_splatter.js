@@ -53,17 +53,17 @@ function drawPaintSplatter() {
     var randomPosition = getRandomLocation();
    
     //Select a random number each time for width of the splatter
-    var standard_deviation = Math.random()*5;
+    var standard_deviation = Math.random()*10;
     
     console.log("Inside drawPaintSplatter function " + paintSplatterCount + "\n");
     
     context.beginPath();
-    for(var splatterCount = 0; splatterCount < 600; splatterCount++) {
+    for(var splatterCount = 0; splatterCount < 200; splatterCount++) {
         var dot_x = gaussianRand(randomPosition.x_pos, standard_deviation);
         var dot_y = gaussianRand(randomPosition.y_pos, standard_deviation);
         context.arc(dot_x,
                     dot_y,
-                    Math.random()*2,
+                    Math.random()*5,
                     0,
                     2*Math.PI);
         context.fill();
