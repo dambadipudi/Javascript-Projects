@@ -1,6 +1,5 @@
 var context;
 var paintSplatterCount = 0;
-var intervalVar = null;
 
 /**
  * After the page loads, prepare the Canvas
@@ -49,16 +48,7 @@ function gaussianRand(mean, std) {
 function drawPaintSplatter() {
     paintSplatterCount ++;
     
-    if(paintSplatterCount > 5) {
-        if(!intervalVal) {
-            clearInterval(intervalVar);
-        }
-        
-        return;
-    }
-    
     //context.restore();
-    context.beginPath();
     context.fillStyle = getRandomColor();
     var randomPosition = getRandomLocation();
    
@@ -67,6 +57,7 @@ function drawPaintSplatter() {
     
     console.log("Inside drawPaintSplatter function " + paintSplatterCount + "\n");
     
+    context.beginPath();
     for(var splatterCount = 0; splatterCount < 600; splatterCount++) {
         var dot_x = gaussianRand(randomPosition.x_pos, standard_deviation);
         var dot_y = gaussianRand(randomPosition.y_pos, standard_deviation);
@@ -78,6 +69,11 @@ function drawPaintSplatter() {
         context.fill();
         //console.log("Dot location "+dot_x + ", " + dot_y + "\n");
     }
+    context.closePath();
+    
+    if(paintSplatterCount < 5) {
+        setTimeout(drawPaintSplatter, 500);
+    }
 
 }
 
@@ -85,5 +81,5 @@ function drawOnCanvas() {
     paintSplatterCount = 0;
     context.clearRect(0, 0, context.canvas.width, context.canvas.height); // Clears the canvas
     console.log("Clearing canvas and painting again,splatter count -" + paintSplatterCount + "\n");    
-    intervalVar = setInterval(drawPaintSplatter(), 500);
+    drawPaintSplatter();
 }
