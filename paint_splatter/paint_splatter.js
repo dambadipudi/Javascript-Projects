@@ -71,7 +71,7 @@ function drawPaintSplatter() {
     }
     context.closePath();
     
-    if(paintSplatterCount < 15) {
+    if(paintSplatterCount < 30) {
         setTimeout(drawPaintSplatter, 500);
     }
 
