@@ -26,8 +26,8 @@ $(document).ready(function(){
  *      @return Object 
  */
 function getRandomLocation() {
-    return { x_pos: Math.floor(Math.random()*context.canvas.width*3/4),
-             y_pos: Math.floor(Math.random()*context.canvas.height*3/4) };
+    return { x_pos: Math.floor(Math.random()*context.canvas.width),
+             y_pos: Math.floor(Math.random()*context.canvas.height) };
 }
 
 /**
